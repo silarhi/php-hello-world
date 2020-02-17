@@ -16,11 +16,11 @@
     },
     "config": {
         "platform": {
-            "php": "7.3.0"
+            "php": "7.4.0"
         }
     },
     "require": {
-        "php": ">=7.3.0"
+        "php": ">=7.4.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.0"
