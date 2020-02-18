@@ -8,3 +8,27 @@ A simple hello-world for composer
 
 
 [![SymfonyInsight](https://insight.symfony.com/projects/a11fedf7-0560-449b-bbfa-d38fe90a99ee/big.svg)](https://insight.symfony.com/projects/a11fedf7-0560-449b-bbfa-d38fe90a99ee)
+
+Installation
+------------
+
+Install with composer
+``` bash
+composer require silarhi/hello-world
+```
+
+Run composer update
+``` bash
+composer update silarhi/hello-world
+```
+
+Usage
+-----
+
+``` php
+require_once __DIR__ . '/vendor/autoload.php';
+
+use function Silarhi\hello;
+
+echo hello() . "\n";
+```
