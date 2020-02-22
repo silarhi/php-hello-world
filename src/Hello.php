@@ -11,7 +11,7 @@ namespace Silarhi;
 
 class Hello implements HelloInterface
 {
-    private const VERSION = '1.5.0';
+    private const VERSION = 'latest';
 
     public function display(): string
     {

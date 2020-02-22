@@ -18,6 +18,6 @@ final class HelloWorldTest extends TestCase
     {
         $hello = new Hello();
         $contents = $hello->display();
-        $this->assertEquals('Hello World v1.5.0', $contents);
+        $this->assertEquals('Hello World vlatest', $contents);
     }
 }
