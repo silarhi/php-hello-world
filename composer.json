@@ -12,7 +12,14 @@
         }
     ],
     "autoload": {
-        "files": ["src/functions.php"]
+        "psr-4": {
+            "Silarhi\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Silarhi\\Tests\\": "tests/"
+        }
     },
     "config": {
         "platform": {
