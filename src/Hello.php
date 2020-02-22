@@ -9,9 +9,12 @@
 
 namespace Silarhi;
 
-\define('HELLO_WORLD_VERSION', '1.5.0');
-
-function hello()
+class Hello implements HelloInterface
 {
-    return sprintf('Hello World v%s', HELLO_WORLD_VERSION);
+    private const VERSION = '1.5.0';
+
+    public function display(): string
+    {
+        return sprintf('Hello World v%s', self::VERSION);
+    }
 }

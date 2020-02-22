@@ -28,7 +28,8 @@ Usage
 ``` php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use function Silarhi\hello;
+use Silarhi\Hello;
 
-echo hello() . "\n";
+$hello = new Hello();
+echo $hello->display() . "\n";
 ```

@@ -7,14 +7,17 @@
  * with this source code in the file LICENSE.
  */
 
+namespace Silarhi\Tests;
+
 use PHPUnit\Framework\TestCase;
-use function Silarhi\hello;
+use Silarhi\Hello;
 
 final class HelloWorldTest extends TestCase
 {
     public function testHello()
     {
-        $contents = hello();
+        $hello = new Hello();
+        $contents = $hello->display();
         $this->assertEquals('Hello World v1.5.0', $contents);
     }
 }
