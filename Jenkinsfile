@@ -14,24 +14,12 @@ pipeline {
       }
     }
 
+
+
   }
 }
 */
-
-pipeline { 
-agent any 
-    stages { 
-        stage ('Build') { 
-          steps {
-            sh "echo 'Build'"
-            script {
-                def browsers = ['chrome', 'firefox']
-                for (int i = 0; i < browsers.size(); ++i) {
-                    echo "Testing the ${browsers[i]} browser"
-                }
-            }
-          }
-        }
+/*
         stage ('Test') { 
           steps {
             sh "echo 'Test'"
@@ -52,6 +40,43 @@ agent any
             sh "echo 'Monitor'"
           }
         }
+*/
+
+pipeline { 
+agent any 
+    stages { 
+        stage ('Build') { 
+          steps {
+            sh "echo 'Build'"
+            script {
+                def browsers = ['chrome', 'firefox']
+                for (int i = 0; i < browsers.size(); ++i) {
+                    echo "Testing the ${browsers[i]} browser"
+                }
+            }
+          }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                echo 'build image'
+            }
+        }
+        stage('Push Docker Image') {
+            steps {
+                echo 'push image'
+            }
+        }
+        stage('Deploy to ECS/EKS') {
+            steps {
+                echo 'deploy manifest'
+            }
+        }
+      
     }           
  }
 
