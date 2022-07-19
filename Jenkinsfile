@@ -13,6 +13,7 @@ agent any
             sh 'id'
             sh 'pwd'
             sh 'ls -al'
+            sh 'php -v'
             sh 'composer install'
             // sh 'php bin/magento'
           }
