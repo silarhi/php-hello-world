@@ -26,7 +26,6 @@ agent any
             sh "echo 'Build'"
             script {
                 def browsers = ['chrome', 'firefox']
-                def browsers.size = 2
                 for (int i = 0; i < browsers.size(); ++i) {
                     echo "Testing the ${browsers[i]} browser"
                 }
