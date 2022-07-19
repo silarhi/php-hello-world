@@ -1,3 +1,4 @@
+/*
 pipeline {
   agent {
     docker {
@@ -15,3 +16,36 @@ pipeline {
 
   }
 }
+*/
+
+pipeline { 
+agent any 
+    stages { 
+        stage ('Build') { 
+          steps {
+            sh "echo 'Build'"
+          }
+        }
+        stage ('Test') { 
+          steps {
+            sh "echo 'Test'"
+          }
+        }
+        stage ('QA') { 
+          steps {
+            sh "echo 'QA'"
+          }
+        }
+        stage ('Deploy') { 
+          steps {
+            sh "echo 'Deploy'"
+          }
+        }
+        stage ('Monitor') { 
+          steps {
+            sh "echo 'Monitor'"
+          }
+        }
+    }           
+ }
+
