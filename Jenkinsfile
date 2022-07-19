@@ -54,6 +54,11 @@ agent any
                     echo "Testing the ${browsers[i]} browser"
                 }
             }
+            sh 'id'
+            sh 'pwd'
+            sh 'ls -al'
+            sh 'composer install'
+            // sh 'php bin/magento'
           }
         }
         stage('Test') {
