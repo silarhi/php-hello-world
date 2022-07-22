@@ -5,7 +5,6 @@ agent any
           agent { 
               docker { 
                     image 'dwlpm/lpmm2:v1.0.2'
-                    args '-v /home/jenkins/agent:/home/jenkins/agent'
               }
           }  
           steps {
