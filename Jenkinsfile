@@ -21,7 +21,7 @@ agent any
                 docker {
                         image 'dwlpm/lpmm2:v1.0.2'
                         args '-v /home/jenkins:/home/jenkins'
-                        args '-v /root/.composer/auth.json:/root/.composer/auth.json'
+                        args '-v /opt/auth.json:/root/.composer/auth.json'
                 }
             }
             steps {
