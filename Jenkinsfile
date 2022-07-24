@@ -19,13 +19,16 @@ agent any
         stage ('Build') {
             agent {
                 docker {
-                        image 'dwlpm/lpmm2:v1.0.2'
+//                        image 'dwlpm/lpmm2:v1.0.2'
+                        image 'ubuntu:18.04'
                         args '-v /home/jenkins:/home/jenkins'
                         args '-v /root/.composer/auth.json:/root/.composer/auth.json'
                 }
             }
             steps {
                 sh "echo 'Build'"
+                sh 'id'
+                sh 'pwd'
                 sh "git clone https://github.com/dwlpm/appcode.git"
                 sh 'cd appcode; composer install'
                 // sh 'php bin/magento'
