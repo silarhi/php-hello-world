@@ -9,8 +9,8 @@ pipeline {
                 sh 'docker build . -f Dockerfile -t appcode:build'
             }
         }
+        def idContainer
         stage('Test') {
-            def idContainer
 
             steps {
                 sh "echo 'Testing..'"
