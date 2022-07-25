@@ -5,5 +5,4 @@ RUN git clone -b dockerfile https://github.com/dwlpm/appcode.git
 WORKDIR appcode
 RUN composer install
 COPY ./index.php index.php
-COPY ./index.html index.html
 CMD [ "php", "-S", "0:80" ]
