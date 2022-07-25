@@ -9,17 +9,16 @@ pipeline {
                 sh 'docker build . -f Dockerfile -t appcode:build'
             }
         }
-        def idContainer
         stage('Test') {
 
             steps {
                 sh "echo 'Testing..'"
                 // run image
                 sh "echo 'run image'"
-                idContainer = sh "docker run --rm -d -p80:80 appcode:build"
+                sh "docker run --name appcode --rm -d -p80:80 appcode:build"
                 // unit test
                 sh "echo 'unit test'"
-                sh "docker exec ${idContainer} bash -c './vendor/bin/phpunit ./tests'"
+                sh "docker exec appcode bash -c './vendor/bin/phpunit ./tests'"
             }
         }
         stage('Push Docker Image') {
