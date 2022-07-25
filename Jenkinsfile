@@ -29,8 +29,7 @@ pipeline {
                 echo 'tag and push image'
                 script {
                     try {
-                        sh "
-                        docker tag appcode:build  dwlpm/appcode || \
+                        sh "docker tag appcode:build  dwlpm/appcode || \
                         docker push dwlpm/appcode"
                     } catch (err) {
                         echo err.getMessage()
