@@ -1,4 +1,4 @@
-FROM lpmcom/lpmm2:v1.0
+FROM dwlpm/lpmm2:v1.0.2
 RUN apt-get update
 RUN apt-get -y install git vim 
 RUN git clone https://github.com/dwlpm/appcode.git
