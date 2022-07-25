@@ -10,25 +10,28 @@ pipeline {
             }
         }
         stage('Test') {
-
             steps {
                 sh "echo 'Testing..'"
-                // run image
+                // run container
                 sh "echo 'run image'"
                 sh "docker run --name appcode --rm -d -p80:80 appcode:build"
+
                 // unit test
                 sh "echo 'unit test'"
                 sh "docker exec appcode bash -c './vendor/bin/phpunit ./tests'"
+
+                // remove container
+                sh "docker rm -f appcode"
             }
         }
         stage('Push Docker Image') {
             steps {
-                echo 'push image'
+                echo 'tag and push image'
                 script {
                     try {
-                        sh "docker tag appcode:latest-1 appcode:latest-2 ; \
-                        docker tag appcode:latest appcode:latest-1 ; \
-                        docker tag appcode:build appcode:latest"
+                        sh "
+                        docker tag appcode:build  dwlpm/appcode || \
+                        docker push dwlpm/appcode"
                     } catch (err) {
                         echo err.getMessage()
                     }
