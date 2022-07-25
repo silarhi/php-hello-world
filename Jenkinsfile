@@ -14,7 +14,7 @@ pipeline {
                 sh "echo 'Testing..'"
                 // run container
                 sh "echo 'run image'"
-                
+
                 sh "docker rm -f appcode"
                 sh "docker run --name appcode --rm -d -p80:80 appcode:build"
 
@@ -31,8 +31,8 @@ pipeline {
                 echo 'tag and push image'
                 script {
                     try {
-                        sh "docker tag appcode:build  dwlpm/appcode || \
-                        docker push dwlpm/appcode"
+                        sh "docker tag appcode:build  dwlpm/appcode"
+                        sh "docker push dwlpm/appcode"
                     } catch (err) {
                         echo err.getMessage()
                     }
