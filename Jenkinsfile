@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Push Docker Image') {
             steps {
-                echo 'tag and push image'
+                sh "echo 'tag and push image'"
                 script {
                     try {
                         sh "docker tag appcode:build  dwlpm/appcode"
@@ -39,10 +39,22 @@ pipeline {
                 }
             }
         }
-        stage('Deploy to ECS/EKS') {
-            steps {
-                echo 'deploy manifest'
-            }
-        }
+        // stage('Deploy to ECS/EKS') {
+        //     steps {
+        //         echo 'deploy manifest'
+        //     }
+        // }
     }
+    post {
+        always {
+            archiveArtifacts artifacts: '*.csv', onlyIfSuccessful: true
+
+            emailext to: "derekwu@lpm.hk",
+            subject: "jenkins build:${currentBuild.currentResult}: ${env.JOB_NAME}",
+            body: "${currentBuild.currentResult}: Job ${env.JOB_NAME}\nMore Info can be found here: ${env.BUILD_URL}",
+            attachmentsPattern: '*.csv'
+
+        cleanWs()
+        }
+    }        
 }
