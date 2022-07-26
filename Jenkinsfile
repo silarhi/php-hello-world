@@ -44,10 +44,11 @@ pipeline {
         //         echo 'deploy manifest'
         //     }
         // }
-        stage('Create Artifact')
-           steps {
-             sh "echo '${currentBuild.currentResult}, ${env.JOB_NAME}, ${env.BUILD_URL}' >> artifact.csv"
-           }
+        stage('Create Artifact') {
+            steps {
+                sh "echo '${currentBuild.currentResult}, ${env.JOB_NAME}, ${env.BUILD_URL}'  >> artifact.csv"
+            }
+        }
     }
     post {
         always {
